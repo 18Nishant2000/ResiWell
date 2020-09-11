@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'profile.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/' : (context) => Decision(),
-        '/login' : (context) => Login(),
+        '/login' : (context) => Profile(),
         '/signup' : (context)=> SignUp(),
       },
     );
@@ -24,18 +25,20 @@ class Decision extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.grey[900],
         body: Container(
           padding: EdgeInsets.all(20.0),
           child: Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
                   Icons.account_circle,
+                  color: Colors.grey[800],
                   size: 50.0,
                 ),
+                SizedBox(height: 30.0,),
                 RaisedButton(
-                  onPressed: () => Navigator.pushNamed(context, '/login'),
                   child: Center(
                     child: Text('Login'),
                   ),
@@ -64,11 +67,12 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.grey[900],
         body: Container(
           padding: EdgeInsets.all(20.0),
           child: Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Login page'),
               ],
@@ -86,11 +90,12 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-backgroundColor: Colors.blueGrey,
+backgroundColor: Colors.grey[900],
         body: Container(
           padding: EdgeInsets.all(20.0),
           child: Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Sign Up page'),
               ],

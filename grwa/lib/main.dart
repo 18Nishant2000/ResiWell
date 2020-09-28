@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'profile.dart';
+import 'SignUp.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/' : (context) => Decision(),
         '/login' : (context) => Profile(),
-        '/signup' : (context)=> SignUp(),
+        '/signup' : (context) => SignUp(),
       },
     );
   }
@@ -39,6 +40,7 @@ class Decision extends StatelessWidget {
                 ),
                 SizedBox(height: 30.0,),
                 RaisedButton(
+                  onPressed: ()=> Navigator.pushNamed(context, '/login'),
                   child: Center(
                     child: Text('Login'),
                   ),
@@ -84,24 +86,3 @@ class Login extends StatelessWidget {
   }
 }
 
-class SignUp extends StatelessWidget {
-  const SignUp({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-backgroundColor: Colors.grey[900],
-        body: Container(
-          padding: EdgeInsets.all(20.0),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Sign Up page'),
-              ],
-            ),
-          ),
-        ),
-    );
-  }
-}

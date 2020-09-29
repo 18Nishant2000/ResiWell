@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'profile.dart';
 import 'SignUp.dart';
+import 'decision.dart' as d2;
+import 'login.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,8 +15,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/' : (context) => Decision(),
-        '/login' : (context) => Profile(),
+        '/login' : (context) => d2.Decision(),
         '/signup' : (context) => SignUp(),
+        '/l' : (context) => Login(),
       },
     );
   }
@@ -58,30 +61,6 @@ class Decision extends StatelessWidget {
           ),
         ),
 
-    );
-  }
-}
-
-class Login extends StatelessWidget {
-  const Login({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.grey[900],
-        body: Container(
-          padding: EdgeInsets.all(20.0),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Login page'),
-              ],
-            ),
-          ),
-        ),
-      ),
     );
   }
 }

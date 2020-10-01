@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key key}) : super(key: key);
@@ -19,6 +20,7 @@ class _SignUpState extends State<SignUp> {
         padding: EdgeInsets.all(20.0),
         child: Center(
           child: Form(
+            key: _formkey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -31,6 +33,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 TextFormField(
+                  validator: (value) => value.isEmpty ? 'Required' : null,
                   style: TextStyle(
                     color: Colors.grey[350],
                   ),
@@ -48,6 +51,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 TextFormField(
+                  validator: (value) => value.isEmpty ? 'Required' : null,
                   style: TextStyle(
                     color: Colors.grey[350],
                   ),
@@ -65,6 +69,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 TextFormField(
+                  validator: (value) => value.isEmpty ? 'Required' : null,
                   style: TextStyle(
                     color: Colors.grey[350],
                   ),
@@ -82,6 +87,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 TextFormField(
+                  validator: (value) => value.isEmpty ? 'Required' : null,
                   style: TextStyle(
                     color: Colors.grey[350],
                   ),
@@ -99,6 +105,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 TextFormField(
+                  validator: (value) => value.isEmpty ? 'Required' : null,
                   style: TextStyle(
                     color: Colors.grey[350],
                   ),
@@ -116,6 +123,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 TextFormField(
+                  validator: (value) => value.isEmpty ? 'Required' : null,
                   style: TextStyle(
                     color: Colors.grey[350],
                   ),
@@ -133,6 +141,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 TextFormField(
+                  validator: (value) => value.isEmpty ? 'Required' : null,
                   obscureText: true,
                   style: TextStyle(
                     color: Colors.grey[350],
@@ -155,6 +164,43 @@ class _SignUpState extends State<SignUp> {
                 ),
                 RaisedButton(
                   onPressed: () async {
+                    //  // await Firebase.initializeApp();
+                    var resp =
+                        FirebaseFirestore.instance.collection('users').get();
+
+                    FirebaseFirestore.instance.collection('users').add({
+                      'Name': name,
+                      'Age': age as int,
+                      'House_No': hno,
+                      'Mobile_No': mobno,
+                      'No_Of_Members': nomem as int,
+                      'Email': email,
+                      'Password': password,
+                    });
+                    // if (_formkey.currentState.validate()) {
+                    //   await Firebase.initializeApp();
+                    //   FirebaseFirestore.instance.collection('users').add({
+                    //     'Name': name,
+                    //     'Age': age as int,
+                    //     'House_No': hno,
+                    //     'Mobile_No': mobno,
+                    //     'No_Of_Members': nomem as int,
+                    //     'Email': email,
+                    //     'Password': password,
+                    //   });
+                    // FirebaseFirestore.instance
+                    //     .collection('users')
+                    //     .doc(mobno)
+                    //     .set({
+                    //   'Name': name,
+                    //   'Age': age as int,
+                    //   'House_No': hno,
+                    //   'Mobile_No': mobno,
+                    //   'No_Of_Members': nomem as int,
+                    //   'Email': email,
+                    //   'Password': password,
+                    // });
+
                     print(name);
                     print(age);
                     print(hno);
@@ -162,6 +208,8 @@ class _SignUpState extends State<SignUp> {
                     print(nomem);
                     print(email);
                     print(password);
+
+                    _formkey.currentState.reset();
                   },
                   child: Center(
                     child: Text(

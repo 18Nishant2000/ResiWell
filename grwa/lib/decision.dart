@@ -19,7 +19,7 @@ class Decision extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.admin_panel_settings_rounded,
-                    size: 200.0,
+                    size: MediaQuery.of(context).size.width * .38,
                   ),
                   Text(
                     'ADMIN',
@@ -45,7 +45,7 @@ class Decision extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.supervised_user_circle_rounded,
-                    size: 200.0,
+                    size: MediaQuery.of(context).size.width * .38,
                   ),
                   Text(
                     'USER',

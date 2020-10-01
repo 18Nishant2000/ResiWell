@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'profile.dart';
 import 'SignUp.dart';
 import 'decision.dart' as d2;
 import 'login.dart';
